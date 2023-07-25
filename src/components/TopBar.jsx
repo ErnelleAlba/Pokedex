@@ -7,7 +7,7 @@ function TopBar() {
     <>
       <div className="title">
         <div className="title__left">
-          <p>Pokédex</p>
+          <p style={{marginLeft:"50px", marginRight:"30px"}}>Pokédex</p>
           <div className="caught-seen">
             <div className="caught">
               <img src={pokeball} alt="pokeball" style={{width:"30px", marginRight:"10px"}}/>
@@ -18,7 +18,7 @@ function TopBar() {
               <p>856</p>
             </div>
           </div>
-          <p style={{color:"white"}}>A -&gt; Z</p>
+          <p style={{color:"white", marginRight:"20vw"}}>A -&gt; Z</p>
         </div>
       </div>
     </>

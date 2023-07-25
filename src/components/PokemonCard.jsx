@@ -4,22 +4,29 @@ import { PokemonImagesBaseUrl } from "../api/PokemonApi"
 import Modal from "./Modal"
 import { useEffect, useState } from "react"
 
-function PokemonCard({id, idForImg, image, name, type, weight, height, stats, statsName}){
+function PokemonCard({
+  id,
+  idForImg, 
+  image, 
+  name, 
+  type, 
+  weight, 
+  height, 
+  stats, 
+  statsName}){
+
   const imageGif = (PokemonImagesBaseUrl + idForImg + ".gif")
   const [isShown, setIsShown] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+// To open Modal 
   function modalHandler() {
     setModalIsOpen(true);
   }
-
+// To close Modal 
   function closeModalHandler() {
     setModalIsOpen(false);
   }
-
-  useEffect(() => {
-    console.log(id, idForImg, name, type, weight, height, stats, statsName)
-
-  }, [id, idForImg, name, type, weight, height, stats, statsName]);
+  
   return (
     <>
       <div className="container">
@@ -58,10 +65,12 @@ function PokemonCard({id, idForImg, image, name, type, weight, height, stats, st
           </div>
         </div>
       )}
-      <div className="right" onMouseEnter={() => setIsShown(true)}
+      <div className="right" 
+        // On Hover in card div.show will display
+        onMouseEnter={() => setIsShown(true)}
         onMouseLeave={() => setIsShown(false)}
+        // On click Modal will open
         onClick={modalHandler}>
-
         <img src={imageGif} alt={name} style={{maxHeight:"50px", marginRight:"10px", width:"50px"}} />
         <p style={{width:"270px"}}>No. {id}</p>
         <p>{name}</p>

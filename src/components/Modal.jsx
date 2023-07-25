@@ -15,11 +15,8 @@ function Modal({
   statsName}) {
 
     useEffect(() => {
-      console.log(stats,
-        statsName)
-
-    }, [stats,
-      statsName]);
+      document.title = `${name} | Pokédex`
+    }, []);
 
   return (
     <>
@@ -51,7 +48,7 @@ function Modal({
           }}>X</div>
 
           <div>
-            <img src={imageGif} alt={name} style={{Filter: "drop-shadow(2px 4px 12px black", width:"250px"}} />
+            <img src={imageGif} alt={name} style={{Filter: "drop-shadow(10px 10px 12px black)", width:"250px"}} />
           </div>
 
           <div style={{
@@ -82,7 +79,7 @@ function Modal({
               </div>
               <div className="base-stats">
                 <div>
-                  { statsName.map((stats) => (
+                  {statsName.map((stats) => (
                     <p className="stats">{stats}</p>
                   ))}
                 </div>
@@ -94,7 +91,6 @@ function Modal({
               </div>
             </div>
           </div>
-
     </>
   )
 }

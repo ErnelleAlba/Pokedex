@@ -7,9 +7,11 @@ function PokemonList() {
   const [allPokemons, setAllPokemons] = useState([]);
 
   const getAllPokemons = async () => {
+    // To Fetch pokemon.name
     const res = await fetch(`${PokemonApiPokemonUrl}?offset=0&limit=1008`);
     const data = await res.json();
 
+    // To Fetch the data for each Pokemon
     function createPokemonObject(results) {
       results.forEach(async (pokemon) => {
         const res = await fetch(`${PokemonApiPokemonUrl}/${pokemon.name}`);
@@ -18,17 +20,12 @@ function PokemonList() {
         await allPokemons.sort((a,b) => a.id - b.id);
       });
     }
-    createPokemonObject(data.results,"ds");
-    console.log(data.results);
+    createPokemonObject(data.results);
   };
+
   useEffect(() => {
     getAllPokemons();
   }, []);
-  useEffect(() => {
-    console.log(allPokemons)
-
-  }, [allPokemons]);
-
 
   return (
     <>

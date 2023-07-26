@@ -1,4 +1,4 @@
-import "./Topbar.css"
+import "./TopBar.css"
 import pokeball from "../images/pokeball.png"
 import pokeballblack from "../images/pokeball-black.png"
 

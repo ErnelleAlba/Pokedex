@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./PokemonList.css"
-import PokemonCard from "./PokemonCard";
+import PokemonCard from "./PokemonCard.jsx";
 import { PokemonApiPokemonUrl } from "../api/PokemonApi";
 
 function PokemonList() {

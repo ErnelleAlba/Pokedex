@@ -1,7 +1,7 @@
 import "./App.css"
-import PokemonList from "./components/PokemonList"
-import BottomBar from "./components/bottomBar"
-import TopBar from "./components/topBar"
+import PokemonList from "./components/PokemonList.jsx"
+import BottomBar from "./components/BottomBar.jsx"
+import TopBar from "./components/TopBar.jsx"
 
 function App() {
 

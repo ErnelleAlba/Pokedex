@@ -1,7 +1,7 @@
 import "./PokemonCard.css"
 import pokeball from "../images/pokeball-black.png"
-import { PokemonImagesBaseUrl } from "../api/PokemonApi"
-import Modal from "./Modal"
+import { PokemonImagesBaseUrl } from "../api/PokemonApi.jsx"
+import Modal from "./Modal.jsx"
 import { useEffect, useState } from "react"
 
 function PokemonCard({

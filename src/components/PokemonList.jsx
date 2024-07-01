@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import "./PokemonList.css"
+import { useEffect, useState } from "react";
+import "./PokemonList.css";
 import PokemonCard from "./PokemonCard.jsx";
 import { PokemonApiPokemonUrl } from "../api/PokemonApi";
 
@@ -17,7 +17,7 @@ function PokemonList() {
         const res = await fetch(`${PokemonApiPokemonUrl}/${pokemon.name}`);
         const data = await res.json();
         setAllPokemons((currentList) => [...currentList, data]);
-        await allPokemons.sort((a,b) => a.id - b.id);
+        allPokemons.sort((a, b) => a.id - b.id);
       });
     }
     createPokemonObject(data.results);
@@ -32,25 +32,34 @@ function PokemonList() {
       <div className="app-container">
         <div className="pokemon-container">
           <div className="all-container">
-            {allPokemons.map((pokemonStats) => 
-              <PokemonCard 
+            {allPokemons.map((pokemonStats) => (
+              <PokemonCard
                 key={pokemonStats.name}
-                id={pokemonStats.id.toString().padStart(3,"0")}
+                id={pokemonStats.id.toString().padStart(3, "0")}
                 idForImg={pokemonStats.id.toString()}
-                name={pokemonStats.name.replace(/^./, (str) => str.toUpperCase())}
-                image={pokemonStats.sprites.versions["generation-viii"].icons.front_default}
+                name={pokemonStats.name.replace(/^./, (str) =>
+                  str.toUpperCase()
+                )}
+                image={
+                  pokemonStats.sprites.versions["generation-viii"].icons
+                    .front_default
+                }
                 type={pokemonStats.types[0].type.name}
                 weight={pokemonStats.weight}
                 height={pokemonStats.height}
-                stats={pokemonStats.stats.map((stat) => stat.base_stat).slice(0,3)}
-                statsName={pokemonStats.stats.map((stat) => stat.stat.name).slice(0,3)}
-                />
-            )}
+                stats={pokemonStats.stats
+                  .map((stat) => stat.base_stat)
+                  .slice(0, 3)}
+                statsName={pokemonStats.stats
+                  .map((stat) => stat.stat.name)
+                  .slice(0, 3)}
+              />
+            ))}{" "}
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default PokemonList
+export default PokemonList;
